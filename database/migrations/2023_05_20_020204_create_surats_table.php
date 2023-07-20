@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
+        /**Membuat tabel surat */
         Schema::create('surats', function (Blueprint $table) {
             $table->id();
-            $table->string('pengirim');
+            $table->bigInteger('pengirim')->unsigned();
             $table->string('nomorsurat');
-            $table->string('jenis');
+            $table->enum('jenis',['Masuk','Keluar']);
             $table->date('tanggal');
             $table->string('document');
             $table->string('nomoragenda');
@@ -23,6 +24,10 @@ return new class extends Migration
             $table->string('asal');
             $table->string('diteruskan');
             $table->timestamps();
+        });
+
+        Schema::table('surats',function (Blueprint $table){
+            $table->foreign('pengirim')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

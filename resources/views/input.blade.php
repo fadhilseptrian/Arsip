@@ -38,8 +38,12 @@
                          <input  name="nomorsurat" id="nomorsurat" class="form-control form-control-lg" type="text"  aria-label=".form-control-lg example">
                      </p>
                      <p>
-                         <label for= "jenis"> Jenis:</label>
-                         <input  name="jenis" id="jenis" class="form-control form-control-lg" type="text"  aria-label=".form-control-lg example" placeholder="Masuk/Keluar">
+                        <label  for="jenis">Jenis  :</label>
+                        <select name="jenis" id="jenis" class="form-select" type="text"  aria-label=".form-control-lg example">>
+                          <option></option>
+                          <option>Masuk</option>
+                          <option>Keluar</option>
+                        </select>
                      </p>
                      
                      <p>
@@ -65,7 +69,7 @@
                      
                     
                     <p>
-                        <label for= "document">Documen</label>
+                        <label for= "document">Documen: jpg</label>
                         <input  name="document" id="document" class="form-control form-control-lg" type="file" aria-label=".form-control-lg example">
                     </P>
                    
