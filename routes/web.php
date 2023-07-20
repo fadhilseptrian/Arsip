@@ -21,7 +21,7 @@ Auth::routes();
 Route::get('/', function () {
     return view('auth.login');
 });
-
+// tampilan kusus Super admin
 Route::group(['middleware'=>['auth','adminMidlleware:0']], function(){
     Route::get('user',[UserController::class,'index'])->name('user.index');
     Route::get('user/create', [UserController::class, 'create'])->name('user.create');
@@ -31,8 +31,8 @@ Route::group(['middleware'=>['auth','adminMidlleware:0']], function(){
     Route::delete('user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 });
 
-Route::group(['middleware'=>['auth','adminMidlleware:0,1']], function(){
-       
+// Tampilan kusus Super admin dan admin 
+Route::group(['middleware'=>['auth','adminMidlleware:0,1']], function(){      
 Route::get('surat/create', [SuratController::class, 'create'])->name('surat.create');
 Route::post('surat/store', [SuratController::class, 'store'])->name('surat.store');
 Route::get('surat/{id}/edit', [SuratController::class, 'edit'])->name('surat.edit');
@@ -42,7 +42,7 @@ Route::delete('surat/{id}', [SuratController::class, 'destroy'])->name('surat.de
 
 
 });
-
+// Tamilan umum
 Route::group(['middleware'=>['auth','adminMidlleware:0,1,2']], function(){
     Route::get('surat', [SuratController::class, 'index'])->name('surat.index');
     Route::get('surat/{id}', [SuratController::class, 'show'])->name('surat.show');
