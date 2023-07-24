@@ -16,13 +16,19 @@ class UserJSONController extends Controller
     public function index()
     {
         $user = user::all();
-        return response()->json($user);
+        return response()->json([
+            'status' => 'true',
+            'messages' => 'data berhasil diambil',
+            'data' => $user]);
     }
 
     public function rechord()
     {
         $data = user::all();
-        return response()->json($data);
+        return response()->json([
+            'status' => 'true',
+            'messages' => 'data berhasil diambil',
+            'data' => $data]);
     }
 
     public function generatepdf()
@@ -66,7 +72,10 @@ class UserJSONController extends Controller
     {
         $surats = surat::where('id',$id)->get();
     
-        return response()->json($surats);
+        return response()->json([
+            'status' => 'true',
+            'messages' => 'data berhasl diambil',
+            'data' => $surats]);
         
     }
 
@@ -77,7 +86,10 @@ class UserJSONController extends Controller
     {
         $users = User::findOrFail($id);
 
-        return response()->json($users);
+        return response()->json([
+            'status' => 'true',
+            'messages' => 'pesan berhasil diambil',
+            'data' => $users]);
     }
 
     /**

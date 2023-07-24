@@ -14,7 +14,10 @@ class SuratJSONController extends Controller
     public function index()
     {
         $surat = surat::all();       
-        return response()->json($surat);
+        return response()->json([
+            'messages' => 'Data berhasil di ambil dari Surat',
+            'status' => 'true',
+            'data' => $surat]);
     }
 
     public function admin()
@@ -61,7 +64,10 @@ class SuratJSONController extends Controller
     {
         $surats = surat::where('id',$id)->get();
     
-        return response()->json($surats);
+        return response()->json([
+            'status' => 'true',
+            'messages' => 'Data berhasil diambil',
+            'data' => $surats]);
         
     }
 
@@ -71,7 +77,10 @@ class SuratJSONController extends Controller
     public function edit($id)
     {
         $surats = surat::findOrFail($id);
-        return response()->json($surats);
+        return response()->json([
+            'status' => 'true',
+            'messages' => 'Data berhasil diambil',
+            'data' => $surats]);
 
     }
 
@@ -128,13 +137,19 @@ class SuratJSONController extends Controller
     public function jenisSatu()
     {
         $jenisSatu = surat::where('jenis','masuk')->get();
-        return response()->json($jenisSatu);
+        return response()->json([
+            'status' => 'true',
+            'messages' => 'Data berhasil diambil',
+            'data' => $jenisSatu]);
     }
 
     public function jenisDua()
     {
         $jenisDua = surat::where('jenis','keluar')->get();
-        return response()->json($jenisDua);
+        return response()->json([
+            'status' => 'true',
+            'messages' => 'data berhasil diambil',
+            'data' => $jenisDua]);
     }
 
 

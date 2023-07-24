@@ -6,6 +6,7 @@ use App\Http\Controllers\SuratController;
 use App\Http\Controllers\SuratJSONController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserJSONController; 
+use App\Http\Controllers\AuthenticController; 
 
 
 /*
